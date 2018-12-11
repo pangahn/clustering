@@ -13,6 +13,10 @@ function score = cluster_nmi(true_labels, cluster_labels)
 % Compute the confusion matrix 'cmat', where
 %   col index is for true label (CAT),
 %   row index is for cluster label (CLS).
+
+true_labels = reshape(true_labels,[],1);
+cluster_labels = reshape(cluster_labels,[],1);
+
 n = length(true_labels);
 cat = spconvert([(1:n)' true_labels ones(n,1)]);
 cls = spconvert([(1:n)' cluster_labels ones(n,1)]);
